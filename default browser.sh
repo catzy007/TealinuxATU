@@ -2,15 +2,19 @@
 
 echo ""
 echo "This Script Using for checking the default browser"
+NAMA=NULL
 
-CHECK=$(cat /usr/share/applications/defaults.list | grep firefox > /dev/null;echo $?)
+read -p "Nama : " NAMA
+
+
+
+CHECK=$(cd /usr/share/applications | whereis $NAMA > /dev/null;echo $?)
 
 #Is The Default Browser is Firefox
 if [[ "$CHECK" != "0" ]]; then
-	echo "The Default Application is not Firefox"
+	echo "The Default Application is not $NAMA"
 	exit 212
 fi
 
 echo ""
-echo "Nice! Default Application for browser is Firefox"
-
+echo "Nice! Default Application for browser is $NAMA"
