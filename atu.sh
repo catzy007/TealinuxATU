@@ -1,27 +1,35 @@
 #!/bin/bash
 arg="$1"
-echo "Welcome to TealinuOS Automatic Testing Utility"
+file1="listappsT1.cfg"
+file2="listappsT2.cfg"
+file3="listappsT3.cfg"
+echo "Welcome to TealinuxOS Automatic Testing Utility"
+echo
+echo "Hardware Information : "
+lshw | grep product | cut -d ':' -f2-
+echo
 case $arg in
 	-t1|--test1)
 		echo "Test 1 - Check installed apps"
-		if [ ! -f listapps.cfg ]
+		if [ ! -f ${file1} ]
 		then
-			echo "listapps.cfg not found!"
+			echo ${file1} not found!
 		else
 			rslt=0
 			echo "List of apps"
-			readarray apps < listapps.cfg
+			readarray apps < ${file1}
 			for index in ${!apps[@]}; do
 				echo " "${index} ${apps[$index]}
 			done
 			for index in ${!apps[@]}; do
-				#echo "${apps[$index]}" 
+				#echo "${apps[$index]}"
 				if [ $(dpkg-query -W -f='${Status}' ${apps[$index]} 2>/dev/null | grep -c "ok installed") -eq 0 ]
 				then
 					rslt=$((rslt+1))
 					echo ${apps[$index]} is not installed!
 				fi
 			done
+			echo
 			if (( ${rslt} > 0 ))
 			then
 				echo Test completed with ${rslt} apps not installed!
@@ -35,7 +43,7 @@ case $arg in
 		echo "development in progress!"
 	;;
 	-t3|--test3)
-		echo "Test 2 - Check if default apps is set correctly"
+		echo "Test 3 - Check if default apps is set correctly"
 		echo "development in progress!"
 	;;
 	*)
