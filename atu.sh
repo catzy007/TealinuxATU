@@ -44,7 +44,34 @@ case $arg in
 	;;
 	-t3|--test3)
 		echo "Test 3 - Check if default apps is set correctly"
-		echo "development in progress!"
+		#echo "development in progress!"
+		if [ ! -f ${file3} ]
+		then
+			echo ${file3} not found!
+		else
+            rslt3=0
+			echo "List of apps"
+			readarray apps < ${file3}
+			for index in ${!apps[@]}; do
+				echo " "${index} ${apps[$index]}
+			done
+			for index in ${!apps[@]}; do
+				#echo "${apps[$index]}"
+				if [ $(cd /usr/share/applications | whereis ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
+				then
+					rslt3=$((rslt3+1))
+					echo ${apps[$index]} is not installed!
+				fi
+			done
+			echo
+			if (( ${rslt3} > 0 ))
+			then
+				echo Test completed with ${rslt3} apps not installed!
+			else
+				echo Test completed with all apps installed!
+			fi
+		fi
+            
 	;;
 	*)
 		echo "Usage: ATU.sh [ARGUMENT]"
