@@ -57,21 +57,20 @@ case $arg in
 			done
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
-				if [ $(cd /usr/share/applications | whereis ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
+				if [ $(cat /usr/share/applications/defaults.list | grep  ${apps[$index]} > /dev/null; echo $?) -eq 1 ]
 				then
 					rslt3=$((rslt3+1))
-					echo ${apps[$index]} is not installed!
+					echo ${apps[$index]} is not the default apps!
 				fi
 			done
 			echo
 			if (( ${rslt3} > 0 ))
 			then
-				echo Test completed with ${rslt3} apps not installed!
+				echo Test completed with ${rslt3} apps not being defaults!
 			else
-				echo Test completed with all apps installed!
+				echo Test completed with all apps being defaults!
 			fi
 		fi
-            
 	;;
 	*)
 		echo "Usage: ATU.sh [ARGUMENT]"
