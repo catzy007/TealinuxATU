@@ -6,10 +6,11 @@ echo "Testing Open Apps then kill"
 NAMA=NULL
 
 read -p "Nama : " NAMA
-APPS=$(pidof $NAMA)
 
-if [[ "$APPS" != "0" ]]; then
-	sudo kill $APPS
+PID=$(pidof $NAMA)
+
+if [[ "$PID" != "0" ]]; then
+	sh -c $NAMA & sleep 10 && sudo kill -s 15 9 $PID
 	echo "Terminated!"
 	exit 212
 fi
