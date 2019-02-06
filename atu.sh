@@ -6,7 +6,7 @@ file3="listappsT3.cfg"
 echo "Welcome to TealinuxOS Automatic Testing Utility"
 echo
 echo "Hardware Information : "
-lshw | grep product | cut -d ':' -f2-
+inxi -Fx -c 00
 echo
 case $arg in
 	-t1|--test1)
