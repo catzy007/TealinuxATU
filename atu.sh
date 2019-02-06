@@ -1,4 +1,5 @@
 #!/bin/bash
+
 arg="$1"
 file1="listappsT1.cfg"
 file2="listappsT2.cfg"
