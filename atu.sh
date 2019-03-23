@@ -38,7 +38,7 @@ case $arg in
 				echo Test completed with all apps installed!
 			fi
 		fi
-	;;
+	#;;
 	#-t2|--test2)
 	#	echo "Test 2 - Check if installed apps working correctly"
 	#	echo "development in progress!" 
