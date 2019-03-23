@@ -39,9 +39,9 @@ case $arg in
 			fi
 		fi
 	;;
-	-t2|--test2)
-		echo "Test 2 - Check if installed apps working correctly"
-		echo "development in progress!"
+	#-t2|--test2)
+	#	echo "Test 2 - Check if installed apps working correctly"
+	#	echo "development in progress!" 
 	;;
 	-t3|--test3)
 		echo "Test 3 - Check if default apps is set correctly"
