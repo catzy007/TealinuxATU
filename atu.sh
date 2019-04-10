@@ -80,7 +80,7 @@ case $arg in
 		echo "  begin test 1"
 		echo "  check installed apps"
 		echo "-t2"
-		echo "  begin test 2"
+		echo "  begin test 2 (test 2 is disabled!)"
 		echo "  check if installed apps working correctly"
 		echo "-t3"
 		echo "  begin test 3"
