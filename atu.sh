@@ -1,5 +1,9 @@
 #!/bin/bash
 
+wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
+wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
+wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
+
 arg="$1"
 file1="listappsT1.cfg"
 file2="listappsT2.cfg"
@@ -50,7 +54,7 @@ case $arg in
 		then
 			echo ${file3} not found!
 		else
-            rslt3=0
+			rslt3=0
 			echo "List of apps"
 			readarray apps < ${file3}
 			for index in ${!apps[@]}; do
