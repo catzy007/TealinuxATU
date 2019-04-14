@@ -2,7 +2,7 @@
 Adalah sebuah tools yang dikembangkan oleh team developer tealinuxOS dengan tujuan mempermudah saat debugging tealinuxOS.
 
 ## Fitur utama
-Pada saat ini terdapat 3 fitur utama dari tealinuxATU yaitu
+Pada saat ini terdapat 4 fitur utama dari tealinuxATU yaitu
 1. check installed apps
 fitur ini berguna untuk menentukan apakah suatu aplikasi telah terinstall dalam `iso` yang dibuat. jika belum maka akan tampil `summary` aplikasi mana saja yang perlu di install.
 2. check removed apps
