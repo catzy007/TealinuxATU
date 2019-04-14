@@ -46,7 +46,7 @@ case $arg in
 	-t2|--test2)
 		rm -f /listappsT2.cfg
 		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg -O /listappsT2.cfg
-		echo "Test 2 - Check removed apps"		
+		echo "Test 2 - Check removed apps"
 		if [ ! -f ${file2} ]
 		then
 			echo ${file2} not found!
@@ -121,3 +121,6 @@ case $arg in
 		echo "  check if default apps is set correctly"
 	;;
 esac
+echo
+echo "If you found an error or bug"
+echo "Make a report to : https://docs.google.com/forms/d/e/1FAIpQLSc8xqnsk3nbPY8UzCaO7e4uoFHHd9xdd5mfEOtVTxxnhUA1Gg/viewform?usp=sf_link"
