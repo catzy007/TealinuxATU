@@ -30,6 +30,7 @@ case $arg in
 			for index in ${!apps[@]}; do
 				echo " "${index} ${apps[$index]}
 			done
+			echo
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
 				if [ $(dpkg-query -W -f='${Status}' ${apps[$index]} 2>/dev/null | grep -c "ok installed") -eq 0 ]
@@ -60,18 +61,19 @@ case $arg in
 			for index in ${!apps[@]}; do
 				echo " "${index} ${apps[$index]}
 			done
+			echo
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
-				if [ $(find /usr/share/applications -type f -name "*${apps[$index]}*" | grep -q ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
+				if [ $(ls /usr/share/applications | grep -q ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
 				then
 					rslt=$((rslt+1))
-					echo ${apps[$index]} is still installed!
+					echo ${apps[$index]} need to be removed!
 				fi
 			done
 			echo
 			if (( ${rslt} > 0 ))
 			then
-				echo Test completed with ${rslt} apps still installed!
+				echo Test completed with ${rslt} apps need to be removed!
 			else
 				echo Test completed with no apps need to be removed!
 			fi
@@ -90,6 +92,7 @@ case $arg in
 			for index in ${!apps[@]}; do
 				echo " "${index} ${apps[$index]}
 			done
+			echo
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
 				if [ $(cat /usr/share/applications/defaults.list | grep  ${apps[$index]} > /dev/null; echo $?) -eq 1 ]
