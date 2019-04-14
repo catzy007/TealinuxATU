@@ -59,8 +59,7 @@ case $arg in
 			done
 			echo
 			for index in ${!apps[@]}; do
-				#echo "${apps[$index]}"
-				if [ $(ls /usr/share/applications | grep -q ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
+				if [ $(cat /usr/share/applications/*.desktop | grep -qi "Name=${apps[$index]}" > /dev/null; echo $?) -eq 0 ]
 				then
 					rslt=$((rslt+1))
 					echo ${apps[$index]} need to be removed!
