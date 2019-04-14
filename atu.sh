@@ -12,7 +12,7 @@ echo
 case $arg in
 	-t1|--test1)
 		rm -f listappsT1.cfg
-		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
 		echo "Test 1 - Check installed apps"
 		if [ ! -f ${file1} ]
 		then
@@ -44,7 +44,7 @@ case $arg in
 	;;
 	-t2|--test2)
 		rm -f listappsT2.cfg
-		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
 		echo "Test 2 - Check removed apps"		
 		if [ ! -f ${file2} ]
 		then
@@ -76,7 +76,7 @@ case $arg in
 	;;
 	-t3|--test3)
 		rm -f listappsT3.cfg
-		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
 		echo "Test 3 - Check if default apps is set correctly"
 		if [ ! -f ${file3} ]
 		then
