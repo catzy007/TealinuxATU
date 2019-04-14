@@ -1,8 +1,12 @@
 #!/bin/bash
 
-file1="/listappsT1.cfg"
-file2="/listappsT2.cfg"
-file3="/listappsT3.cfg"
+link1="https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg"
+link2="https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg"
+link3="https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg"
+
+file1="/usr/share/tealinux/TealinuxATU/listappsT1.cfg"
+file2="/usr/share/tealinux/TealinuxATU/listappsT2.cfg"
+file3="/usr/share/tealinux/TealinuxATU/listappsT3.cfg"
 
 arg="$1"
 echo "Welcome to TealinuxOS Automatic Testing Utility"
@@ -12,8 +16,8 @@ inxi -Fx -c 00
 echo
 case $arg in
 	-t1|--test1)
-		rm -f /listappsT1.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg -O /listappsT1.cfg
+		rm -f $file1
+		wget -qN $link1 -O $file1
 		echo "Test 1 - Check installed apps"
 		if [ ! -f ${file1} ]
 		then
@@ -44,8 +48,8 @@ case $arg in
 		fi
 	;;
 	-t2|--test2)
-		rm -f /listappsT2.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg -O /listappsT2.cfg
+		rm -f $file2
+		wget -qN $link2 -O $file2
 		echo "Test 2 - Check removed apps"
 		if [ ! -f ${file2} ]
 		then
@@ -76,8 +80,8 @@ case $arg in
 		fi
 	;;
 	-t3|--test3)
-		rm -f /listappsT3.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg -O /listappsT3.cfg
+		rm -f $file3
+		wget -qN $link3 -O $file3
 		echo "Test 3 - Check if default apps is set correctly"
 		if [ ! -f ${file3} ]
 		then
