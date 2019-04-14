@@ -1,5 +1,9 @@
 #!/bin/bash
 
+rm -f listappsT1.cfg
+rm -f listappsT2.cfg
+rm -f listappsT3.cfg
+
 wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
 wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
 wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
@@ -42,10 +46,36 @@ case $arg in
 				echo Test completed with all apps installed!
 			fi
 		fi
-	#;;
-	#-t2|--test2)
-	#	echo "Test 2 - Check if installed apps working correctly"
-	#	echo "development in progress!" 
+	;;
+	-t2|--test2)
+		echo "Test 2 - Check removed apps"
+		
+		if [ ! -f ${file2} ]
+		then
+			echo ${file2} not found!
+		else
+			rslt=0
+			echo "List of apps"
+			readarray apps < ${file2}
+			for index in ${!apps[@]}; do
+				echo " "${index} ${apps[$index]}
+			done
+			for index in ${!apps[@]}; do
+				#echo "${apps[$index]}"
+				if [ $(find /usr/share/applications -type f -name "*${apps[$index]}*" | grep -q ${apps[$index]} > /dev/null; echo $?) -eq 0 ]
+				then
+					rslt=$((rslt+1))
+					echo ${apps[$index]} is still installed!
+				fi
+			done
+			echo
+			if (( ${rslt} > 0 ))
+			then
+				echo Test completed with ${rslt} apps still installed!
+			else
+				echo Test completed with no apps need to be removed!
+			fi
+		fi
 	;;
 	-t3|--test3)
 		echo "Test 3 - Check if default apps is set correctly"
@@ -84,8 +114,8 @@ case $arg in
 		echo "  begin test 1"
 		echo "  check installed apps"
 		echo "-t2"
-		echo "  begin test 2 (test 2 is disabled!)"
-		echo "  check if installed apps working correctly"
+		echo "  begin test 2"
+		echo "  check removed apps"
 		echo "-t3"
 		echo "  begin test 3"
 		echo "  check if default apps is set correctly"
