@@ -1,13 +1,5 @@
 #!/bin/bash
 
-rm -f listappsT1.cfg
-rm -f listappsT2.cfg
-rm -f listappsT3.cfg
-
-wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
-wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
-wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
-
 arg="$1"
 file1="listappsT1.cfg"
 file2="listappsT2.cfg"
@@ -19,6 +11,8 @@ inxi -Fx -c 00
 echo
 case $arg in
 	-t1|--test1)
+		rm -f listappsT1.cfg
+		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
 		echo "Test 1 - Check installed apps"
 		if [ ! -f ${file1} ]
 		then
@@ -49,8 +43,9 @@ case $arg in
 		fi
 	;;
 	-t2|--test2)
-		echo "Test 2 - Check removed apps"
-		
+		rm -f listappsT2.cfg
+		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
+		echo "Test 2 - Check removed apps"		
 		if [ ! -f ${file2} ]
 		then
 			echo ${file2} not found!
@@ -80,8 +75,9 @@ case $arg in
 		fi
 	;;
 	-t3|--test3)
+		rm -f listappsT3.cfg
+		wget -q https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
 		echo "Test 3 - Check if default apps is set correctly"
-		#echo "development in progress!"
 		if [ ! -f ${file3} ]
 		then
 			echo ${file3} not found!
