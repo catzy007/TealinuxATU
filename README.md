@@ -12,4 +12,4 @@ fitur ini berbeda dari kedua fitur diatas. fitur ini berguna untuk menentukan ap
 
 ## Known limitations
 1. pada fitur satu menggunakan `dpkg-query` sehingga aplikasi yang tak di install menggunakan `apt` atau `dpkg -i` mungkin tak terdeteksi
-2. pada fitur dua, karena menggunakan `ls /usr/share/applications` maka filename belum tentu sama dengan nama file pada start menu
+2. ~~pada fitur dua, karena menggunakan `ls /usr/share/applications` maka filename belum tentu sama dengan nama file pada start menu~~ syudah di overcome!
