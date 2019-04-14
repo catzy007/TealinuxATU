@@ -1,9 +1,10 @@
 #!/bin/bash
 
+file1="/listappsT1.cfg"
+file2="/listappsT2.cfg"
+file3="/listappsT3.cfg"
+
 arg="$1"
-file1="/tmp/listappsT1.cfg"
-file2="/tmp/listappsT2.cfg"
-file3="/tmp/listappsT3.cfg"
 echo "Welcome to TealinuxOS Automatic Testing Utility"
 echo
 echo "Hardware Information : "
@@ -11,8 +12,8 @@ inxi -Fx -c 00
 echo
 case $arg in
 	-t1|--test1)
-		rm -f listappsT1.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg
+		rm -f /listappsT1.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT1.cfg -O /listappsT1.cfg
 		echo "Test 1 - Check installed apps"
 		if [ ! -f ${file1} ]
 		then
@@ -43,8 +44,8 @@ case $arg in
 		fi
 	;;
 	-t2|--test2)
-		rm -f listappsT2.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg
+		rm -f /listappsT2.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT2.cfg -O /listappsT2.cfg
 		echo "Test 2 - Check removed apps"		
 		if [ ! -f ${file2} ]
 		then
@@ -75,8 +76,8 @@ case $arg in
 		fi
 	;;
 	-t3|--test3)
-		rm -f listappsT3.cfg
-		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg
+		rm -f /listappsT3.cfg
+		wget -qN https://raw.githubusercontent.com/catzy007/TealinuxATU/master/listappsT3.cfg -O /listappsT3.cfg
 		echo "Test 3 - Check if default apps is set correctly"
 		if [ ! -f ${file3} ]
 		then
