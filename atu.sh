@@ -1,9 +1,9 @@
 #!/bin/bash
 
 arg="$1"
-file1="listappsT1.cfg"
-file2="listappsT2.cfg"
-file3="listappsT3.cfg"
+file1="/tmp/listappsT1.cfg"
+file2="/tmp/listappsT2.cfg"
+file3="/tmp/listappsT3.cfg"
 echo "Welcome to TealinuxOS Automatic Testing Utility"
 echo
 echo "Hardware Information : "
