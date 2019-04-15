@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 echo "Checking new updates. . ."
-rm $file
+rm -f $file
 wget -qN $link -O $file
 chmod +x $file
 $file $1
