@@ -30,15 +30,33 @@ case $arg in
 				echo " "${index} ${apps[$index]}
 			done
 			echo
+
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
-				if [ $(dpkg-query -W -f='${Status}' ${apps[$index]} 2>/dev/null | grep -c "ok installed") -eq 0 ]
+				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]
 				then
-					rslt=$((rslt+1))
-					echo ${apps[$index]} is not installed!
+					#echo "not contain space"
+					if [ $(dpkg-query -W -f='${Status}' ${apps[$index]} 2>/dev/null | grep -c "ok installed") -eq 0 ]
+					then
+						search=$(printf 'Name=%s' "${apps[$index]}")
+						if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]
+						then
+							rslt=$((rslt+1))
+							echo ${apps[$index]} is not installed!
+						fi
+					fi
+				else
+					#echo "contain space"
+					search=$(printf 'Name=%s' "${apps[$index]}")
+					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]
+					then
+						rslt=$((rslt+1))
+						echo ${apps[$index]} is not installed!
+					fi
 				fi
 			done
 			echo
+
 			if (( ${rslt} > 0 ))
 			then
 				echo Test completed with ${rslt} apps not installed!
