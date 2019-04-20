@@ -81,11 +81,26 @@ case $arg in
 			done
 			echo
 			for index in ${!apps[@]}; do
-				search=$(printf 'Name=%s' "${apps[$index]}")
-				if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]
+				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]
 				then
-					rslt=$((rslt+1))
-					echo ${apps[$index]} need to be removed!
+					#echo "not contain space"
+					if [ $(dpkg-query -W -f='${Status}' ${apps[$index]} 2>/dev/null | grep -c "ok installed") -eq 1 ]
+					then
+						search=$(printf 'Name=%s' "${apps[$index]}")
+						if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]
+						then
+							rslt=$((rslt+1))
+							echo ${apps[$index]} need to be removed!
+						fi
+					fi
+				else
+					#echo "contain space"
+					search=$(printf 'Name=%s' "${apps[$index]}")
+					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]
+					then
+						rslt=$((rslt+1))
+						echo ${apps[$index]} need to be removed!
+					fi
 				fi
 			done
 			echo
