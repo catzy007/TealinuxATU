@@ -34,7 +34,7 @@ case $arg in
 				#echo "${apps[$index]}"
 				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
 					#echo "not contain space" #debug_line_can_be_removed
-					search1=$(printf 'Name=%s' "${apps[$index]}")
+					search1=$(printf 'name=%s' "${apps[$index]}")
 					search2=$(printf '%s: /' "${apps[$index]}")
 
 					if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
@@ -47,7 +47,7 @@ case $arg in
 					fi
 				else
 					#echo "contain space" #debug_line_can_be_removed
-					search=$(printf 'Name=%s' "${apps[$index]}")
+					search=$(printf 'name=%s' "${apps[$index]}")
 					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]; then
 						rslt=$((rslt+1))
 						echo "${apps[$index]} is not installed!"
@@ -82,7 +82,8 @@ case $arg in
 			for index in ${!apps[@]}; do
 				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
 					#echo "not contain space" #debug_line_can_be_removed
-					search1=$(printf 'Name=%s' "${apps[$index]}")
+					search1=$(printf 'name=%s' "${apps[$index]}")
+					echo $search1
 
 					if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
 						if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
@@ -92,7 +93,7 @@ case $arg in
 					fi
 				else
 					#echo "contain space"
-					search=$(printf 'Name=%s' "${apps[$index]}")
+					search=$(printf 'name=%s' "${apps[$index]}")
 					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
 						rslt=$((rslt+1))
 						echo "${apps[$index]} need to be removed!"
