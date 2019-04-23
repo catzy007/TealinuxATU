@@ -83,7 +83,7 @@ case $arg in
 				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
 					#echo "not contain space" #debug_line_can_be_removed
 					search1=$(printf 'name=%s' "${apps[$index]}")
-					echo $search1
+					#echo $search1 #debug_line_can_be_removed
 
 					if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
 						if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
