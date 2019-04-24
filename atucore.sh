@@ -26,31 +26,35 @@ case $arg in
 			echo "List of apps"
 			readarray -t apps < ${file1}
 			for index in ${!apps[@]}; do
-				echo " ${index} ${apps[$index]}"
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					echo " ${index} ${apps[$index]}"
+				fi
 			done
 			echo
 
 			for index in ${!apps[@]}; do
-				#echo "${apps[$index]}"
-				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
-					#echo "not contain space" #debug_line_can_be_removed
-					search1=$(printf 'name=%s' "${apps[$index]}")
-					search2=$(printf '%s: /' "${apps[$index]}")
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					#echo "${apps[$index]}"
+					if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
+						#echo "not contain space" #debug_line_can_be_removed
+						search1=$(printf 'name=%s' "${apps[$index]}")
+						search2=$(printf '%s: /' "${apps[$index]}")
 
-					if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
-						if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]; then
-							if [ $(whereis "${apps[$index]}" | grep -i "$search2" > /dev/null; echo $?) -eq 1 ]; then
-								rslt=$((rslt+1))
-								echo "${apps[$index]} is not installed!"
+						if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+							if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]; then
+								if [ $(whereis "${apps[$index]}" | grep -i "$search2" > /dev/null; echo $?) -eq 1 ]; then
+									rslt=$((rslt+1))
+									echo "${apps[$index]} is not installed!"
+								fi
 							fi
 						fi
-					fi
-				else
-					#echo "contain space" #debug_line_can_be_removed
-					search=$(printf 'name=%s' "${apps[$index]}")
-					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]; then
-						rslt=$((rslt+1))
-						echo "${apps[$index]} is not installed!"
+					else
+						#echo "contain space" #debug_line_can_be_removed
+						search=$(printf 'name=%s' "${apps[$index]}")
+						if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 1 ]; then
+							rslt=$((rslt+1))
+							echo "${apps[$index]} is not installed!"
+						fi
 					fi
 				fi
 			done
@@ -75,28 +79,32 @@ case $arg in
 			echo "List of apps"
 			readarray -t apps < ${file2}
 			for index in ${!apps[@]}; do
-				echo " ${index} ${apps[$index]}"
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					echo " ${index} ${apps[$index]}"
+				fi
 			done
 			echo
 
 			for index in ${!apps[@]}; do
-				if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
-					#echo "not contain space" #debug_line_can_be_removed
-					search1=$(printf 'name=%s' "${apps[$index]}")
-					#echo $search1 #debug_line_can_be_removed
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					if [ $(echo "${apps[$index]}" | grep \  | wc -l) == 0 ]; then
+						#echo "not contain space" #debug_line_can_be_removed
+						search1=$(printf 'name=%s' "${apps[$index]}")
+						#echo $search1 #debug_line_can_be_removed
 
-					if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
-						if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
+						if [ $(dpkg-query -W -f='${Status}' "${apps[$index]}" 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
+							if [ $(grep -i "$search1" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
+								rslt=$((rslt+1))
+								echo "${apps[$index]} need to be removed!"
+							fi
+						fi
+					else
+						#echo "contain space"
+						search=$(printf 'name=%s' "${apps[$index]}")
+						if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
 							rslt=$((rslt+1))
 							echo "${apps[$index]} need to be removed!"
 						fi
-					fi
-				else
-					#echo "contain space"
-					search=$(printf 'name=%s' "${apps[$index]}")
-					if [ $(grep -i "$search" /usr/share/applications/*.desktop > /dev/null; echo $?) -eq 0 ]; then
-						rslt=$((rslt+1))
-						echo "${apps[$index]} need to be removed!"
 					fi
 				fi
 			done
@@ -112,13 +120,13 @@ case $arg in
 	-t3|--test3)
 		rm -f $file3
 		wget -qN $link3 -O $file3
-		echo "Test 3 - Check if default apps is set correctly"
+		echo "Test 3 - Check if default file types is set correctly"
 		if [ ! -f ${file3} ]
 		then
 			echo "${file3} not found!"
 		else
 			rslt3=0
-			echo "List of apps"
+			echo "List of file types"
 			readarray -t apps < ${file3}
 			for index in ${!apps[@]}; do
 				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
@@ -133,7 +141,7 @@ case $arg in
 					if [ $(grep -i "${apps[$index]}" /usr/share/applications/defaults.list > /dev/null; echo $?) -eq 1 ]
 					then
 						rslt3=$((rslt3+1))
-						echo "${apps[$index]} is not the default apps!"
+						echo "No default apps set for ${apps[$index]}!"
 					fi
 				fi
 			done
@@ -141,9 +149,9 @@ case $arg in
 			echo
 			if (( ${rslt3} > 0 ))
 			then
-				echo "Test completed with ${rslt3} apps not being defaults!"
+				echo "Test completed with ${rslt3} file types not set!"
 			else
-				echo "Test completed with all apps being defaults!"
+				echo "Test completed with all file types set!"
 			fi
 		fi
 	;;
