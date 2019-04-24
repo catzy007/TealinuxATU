@@ -1,0 +1,186 @@
+INFO:   ****************************************
+INFO:   06/03/2018 20:26:12
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.0.6000 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Running under Local System Account
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\DPinst.exe" /SW /U "C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\XtuAcpiDriver.inf"'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers'
+INFO:   Uninstall option set: Suppressing Wizard but no OS popups.
+INFO:   Uninstall command: uninstall Inf 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\XtuAcpiDriver.inf'
+INFO:   Starting uninstall of 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\XtuAcpiDriver.inf'
+INFO:   ENTER:  DriverPackageUninstallW
+INFO:   Uninstalling driver package C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\XtuAcpiDriver.inf...
+INFO:   Successfully uninstalled 'C:\WINDOWS\INF\oem4.inf'.
+INFO:   No devices found for C:\WINDOWS\System32\DriverStore\FileRepository\xtuacpidriver.inf_amd64_bd1bc401eb7a9d7a\xtuacpidriver.inf uninstall.
+ERROR:  Could not delete properties for driver store entry 'C:\WINDOWS\System32\DriverStore\FileRepository\xtuacpidriver.inf_amd64_bd1bc401eb7a9d7a\xtuacpidriver.inf'.
+SUCCESS:Uninstall completed.
+INFO:   RETURN: DriverPackageUninstallW  (0x0)
+INFO:   Returning with code 0x0
+INFO:   06/03/2018 20:26:15
+INFO:   ****************************************
+INFO:   06/03/2018 20:26:16
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.0.6000 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Running under Local System Account
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\DPinst.exe" /SW /U "C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\iccwdt.inf"'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers'
+INFO:   Uninstall option set: Suppressing Wizard but no OS popups.
+INFO:   Uninstall command: uninstall Inf 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\iccwdt.inf'
+INFO:   Starting uninstall of 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\iccwdt.inf'
+INFO:   ENTER:  DriverPackageUninstallW
+INFO:   Uninstalling driver package C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\iccwdt.inf...
+INFO:   Successfully uninstalled 'C:\WINDOWS\INF\oem9.inf'.
+SUCCESS:Device with device instance ID 'ACPI\INT3F0D\4&1B57DC7A&0' reinstalled.
+INFO:   Successfully uninstalled 1 devices for C:\WINDOWS\System32\DriverStore\FileRepository\iccwdt.inf_amd64_dd18b39e0126ee09\iccwdt.inf.
+ERROR:  Could not delete properties for driver store entry 'C:\WINDOWS\System32\DriverStore\FileRepository\iccwdt.inf_amd64_dd18b39e0126ee09\iccwdt.inf'.
+SUCCESS:Uninstall completed.
+INFO:   RETURN: DriverPackageUninstallW  (0x0)
+INFO:   Machine has to be rebooted to complete uninstall.
+INFO:   Returning with code 0x40000000
+INFO:   06/03/2018 20:26:19
+INFO:   ****************************************
+INFO:   07/28/2018 18:22:45
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.0.6000 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Running under Local System Account
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\DPinst.exe" /SA /SW /PATH "C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers'
+INFO:   Running on path 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\'
+INFO:   No valid 'dpinst.xml' file provided.
+INFO:   Install option set: Suppressing Wizard but no OS popups.
+INFO:   Install option set: Suppress Add or Remove Programs entries.
+INFO:   Found driver package: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\IccWdtDriver\ICCWDT_Driver\\iccwdt.inf'.
+INFO:   Preinstalling 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\iccwdtdriver\iccwdt_driver\\iccwdt.inf' ...
+INFO:   ENTER:  DriverPackagePreinstallW
+SUCCESS:c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\iccwdtdriver\iccwdt_driver\\iccwdt.inf is preinstalled.
+INFO:   RETURN: DriverPackagePreinstallW  (0x0)
+INFO:   ENTER:  DriverPackageGetPathW
+INFO:   RETURN: DriverPackageGetPathW  (0x0)
+INFO:   ENTER:  DriverPackageInstallW
+INFO:   Installing INF file 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\iccwdtdriver\iccwdt_driver\iccwdt.inf' (Plug and Play).
+INFO:   Looking for Model Section [INTC.ntamd64]...
+INFO:   Installing devices with Id "ACPI\VEN_INT&DEV_3F0D" using INF "C:\WINDOWS\System32\DriverStore\FileRepository\iccwdt.inf_amd64_dd18b39e0126ee09\iccwdt.inf".
+INFO:   ENTER UpdateDriverForPlugAndPlayDevices...
+SUCCESS:RETURN UpdateDriverForPlugAndPlayDevices.
+INFO:   Installation was successful.
+SUCCESS:Install completed
+INFO:   RETURN: DriverPackageInstallW  (0x0)
+INFO:   Successfull installation of 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\iccwdtdriver\iccwdt_driver\\iccwdt.inf'.
+INFO:   Returning with code 0x1
+INFO:   07/28/2018 18:22:51
+INFO:   ****************************************
+INFO:   07/28/2018 18:22:51
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.0.6000 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Running under Local System Account
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\DPinst.exe" /SA /SW /PATH "C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers'
+INFO:   Running on path 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\'
+INFO:   No valid 'dpinst.xml' file provided.
+INFO:   Install option set: Suppressing Wizard but no OS popups.
+INFO:   Install option set: Suppress Add or Remove Programs entries.
+INFO:   Found driver package: 'C:\Program Files (x86)\Intel\Intel(R) Extreme Tuning Utility\Drivers\AcpiDriver\64bit\\XtuAcpiDriver.inf'.
+INFO:   Preinstalling 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\acpidriver\64bit\\xtuacpidriver.inf' ...
+INFO:   ENTER:  DriverPackagePreinstallW
+SUCCESS:c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\acpidriver\64bit\\xtuacpidriver.inf is preinstalled.
+INFO:   RETURN: DriverPackagePreinstallW  (0x0)
+INFO:   ENTER:  DriverPackageGetPathW
+INFO:   RETURN: DriverPackageGetPathW  (0x0)
+INFO:   ENTER:  DriverPackageInstallW
+INFO:   Installing INF file 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\acpidriver\64bit\xtuacpidriver.inf' (Plug and Play).
+INFO:   Looking for Model Section [IntelDevice.NTamd64]...
+INFO:   No matching devices found in INF "C:\WINDOWS\System32\DriverStore\FileRepository\xtuacpidriver.inf_amd64_bd1bc401eb7a9d7a\xtuacpidriver.inf" on the Machine.
+INFO:   No drivers installed. No devices found that match driver(s) contained in 'C:\WINDOWS\System32\DriverStore\FileRepository\xtuacpidriver.inf_amd64_bd1bc401eb7a9d7a\xtuacpidriver.inf'.
+INFO:   RETURN: DriverPackageInstallW  (0xE000020B)
+INFO:   No matching device was found for 'c:\program files (x86)\intel\intel(r) extreme tuning utility\drivers\acpidriver\64bit\\xtuacpidriver.inf'. Driver will be installed when plugged in.
+INFO:   Returning with code 0x100
+INFO:   07/28/2018 18:22:52
+INFO:   ****************************************
+INFO:   11/22/2018 13:59:50
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.2.9200 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\WINDOWS\Installer\MSICEE.tmp" /F /SW /SA /PATH "C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver"'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\WINDOWS\Installer'
+INFO:   Running on path 'C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver'
+INFO:   No valid 'dpinst.xml' file provided.
+INFO:   Install option set: Suppressing Wizard but no OS popups.
+INFO:   Install option set: Force install if driver is not better.
+INFO:   Install option set: Suppress Add or Remove Programs entries.
+INFO:   Found driver package: 'C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver\DaVinciPanel.inf'.
+INFO:   Preinstalling 'c:\programdata\blackmagic design\davinci resolve\support\bmddriver\davincipanel.inf' ...
+INFO:   ENTER:  DriverPackagePreinstallW
+SUCCESS:c:\programdata\blackmagic design\davinci resolve\support\bmddriver\davincipanel.inf is preinstalled.
+INFO:   RETURN: DriverPackagePreinstallW  (0x0)
+INFO:   ENTER:  DriverPackageGetPathW
+INFO:   RETURN: DriverPackageGetPathW  (0x0)
+INFO:   ENTER:  DriverPackageInstallW
+INFO:   Installing INF file 'c:\programdata\blackmagic design\davinci resolve\support\bmddriver\davincipanel.inf' (Plug and Play).
+INFO:   Looking for Model Section [Blackmagic.NTamd64]...
+INFO:   No matching devices found in INF "C:\WINDOWS\System32\DriverStore\FileRepository\davincipanel.inf_amd64_c71d18f214a831cc\davincipanel.inf" on the Machine.
+INFO:   No drivers installed. No devices found that match driver(s) contained in 'C:\WINDOWS\System32\DriverStore\FileRepository\davincipanel.inf_amd64_c71d18f214a831cc\davincipanel.inf'.
+INFO:   RETURN: DriverPackageInstallW  (0xE000020B)
+INFO:   No matching device was found for 'c:\programdata\blackmagic design\davinci resolve\support\bmddriver\davincipanel.inf'. Driver will be installed when plugged in.
+INFO:   Returning with code 0x100
+INFO:   11/22/2018 14:01:15
+INFO:   ****************************************
+INFO:   11/24/2018 18:30:47
+INFO:   Product Version 2.1.0.0.
+INFO:   Version: 6.2.9200 
+INFO:   Platform ID: 2 (NT)
+INFO:   Service Pack: 0.0
+INFO:   Suite: 0x0100, Product Type: 1
+INFO:   Architecture: AMD64.
+INFO:   Running under Local System Account
+INFO:   Interactive Windows Station
+INFO:   Command Line: '"C:\WINDOWS\Installer\MSI3894.tmp" /SW /D /U "C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver\DaVinciPanel.inf"'
+INFO:   DPInst is not multi-lingual.
+INFO:   ****************************************
+INFO:   Current working directory: 'C:\WINDOWS\Installer'
+INFO:   Uninstall option set: Suppressing Wizard but no OS popups.
+INFO:   Uninstall command: uninstall Inf 'C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver\DaVinciPanel.inf'
+INFO:   Uninstall option set: if driver was installed, will make best effort to delete driver binaries.
+INFO:   Starting uninstall of 'C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver\DaVinciPanel.inf'
+INFO:   ENTER:  DriverPackageUninstallW
+INFO:   Uninstalling driver package C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\BMDDriver\DaVinciPanel.inf...
+INFO:   Successfully uninstalled 'C:\WINDOWS\INF\oem132.inf'.
+INFO:   No devices found for C:\WINDOWS\System32\DriverStore\FileRepository\davincipanel.inf_amd64_c71d18f214a831cc\davincipanel.inf uninstall.
+ERROR:  Could not delete properties for driver store entry 'C:\WINDOWS\System32\DriverStore\FileRepository\davincipanel.inf_amd64_c71d18f214a831cc\davincipanel.inf'.
+SUCCESS:Uninstall completed.
+INFO:   RETURN: DriverPackageUninstallW  (0x0)
+INFO:   Returning with code 0x0
+INFO:   11/24/2018 18:30:49
