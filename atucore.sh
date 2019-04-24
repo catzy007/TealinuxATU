@@ -127,7 +127,7 @@ case $arg in
 
 			for index in ${!apps[@]}; do
 				#echo "${apps[$index]}"
-				if [ $(cat /usr/share/applications/defaults.list | grep  "${apps[$index]}" > /dev/null; echo $?) -eq 1 ]
+				if [ $(grep -i "${apps[$index]}" /usr/share/applications/defaults.list > /dev/null; echo $?) -eq 1 ]
 				then
 					rslt3=$((rslt3+1))
 					echo "${apps[$index]} is not the default apps!"
