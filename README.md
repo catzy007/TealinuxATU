@@ -15,7 +15,8 @@ jika ada update dari repo maka secara otomatis atu akan download. baik berupa co
 ## Known limitations
 1. ~~pada fitur satu menggunakan `dpkg-query` sehingga aplikasi yang tak di install menggunakan `apt` atau `dpkg -i` mungkin tak terdeteksi~~ syudah di overcome!
 2. ~~pada fitur dua, karena menggunakan `ls /usr/share/applications` maka filename belum tentu sama dengan nama file pada start menu~~ syudah di overcome! fitur satu dan dua menggunakan 2 metode yaitu pencarian menggunakan `dpkg-query` dan pencarian keyword pada `/usr/share/applications/*.desktop`
-3. atu belum dapat menemukan binary yang di install bukan lewat `apt/dpkg` seperti `npm`. semoga dapat dikembangkan menggunakan `whereis`
+3. ~~atu belum dapat menemukan binary yang di install bukan lewat `apt/dpkg` seperti `npm`. semoga dapat dikembangkan menggunakan `whereis`~~
+4. atu tidak dapat mendeteksi app yang di install untuk satu user tertentu (misal install npm langsung dari repo)
 
 ## Cara installasi
 1. download inxi (jika tidak ada) `sudo apt install inxi`
