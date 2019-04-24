@@ -121,16 +121,20 @@ case $arg in
 			echo "List of apps"
 			readarray -t apps < ${file3}
 			for index in ${!apps[@]}; do
-				echo " ${index} ${apps[$index]}"
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					echo " ${index} ${apps[$index]}"
+				fi
 			done
 			echo
 
 			for index in ${!apps[@]}; do
-				#echo "${apps[$index]}"
-				if [ $(grep -i "${apps[$index]}" /usr/share/applications/defaults.list > /dev/null; echo $?) -eq 1 ]
-				then
-					rslt3=$((rslt3+1))
-					echo "${apps[$index]} is not the default apps!"
+				if [ $(echo "${apps[$index]}" | grep \# | wc -l) == 0 ]; then
+					#echo "${apps[$index]}"
+					if [ $(grep -i "${apps[$index]}" /usr/share/applications/defaults.list > /dev/null; echo $?) -eq 1 ]
+					then
+						rslt3=$((rslt3+1))
+						echo "${apps[$index]} is not the default apps!"
+					fi
 				fi
 			done
 
