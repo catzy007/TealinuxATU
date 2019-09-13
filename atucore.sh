@@ -12,7 +12,7 @@ arg="$1"
 echo "Welcome to TealinuxOS Automatic Testing Utility"
 echo
 echo "Hardware Information : "
-inxi -Fx -c 00
+inxi -Fxm -c 00
 echo
 case $arg in
 	-t1|--test1)
